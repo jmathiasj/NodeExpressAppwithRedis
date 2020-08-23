@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://bootswatch.com/3/cerulean/bootstrap.min.css">
+        <title>Redis Tasks with node express</title>
+<!-- <style>
+    .del:checked +span{
+        color:red;
+
+    }
+    .task-list{
+        list-style:none;
+    }
+</style> -->
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+  
+
+        <div class="container">
+          <div class="navbar-header">
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button> -->
+              <a class="navbar-brand" href="#">RedisImplement</a>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <form method="post" action="/task/add">
+            <label>Add Task</label>
+            <input type="text" name="task" placeholder="Add Task">
+            <input type="submit" value="submit">
+        </form>
+        <h3<%= title%></h3>
+        <form method="post" action="/task/delete">
+        <ul class="task-list">
+        <% tasks.forEach(function(task){%>
+        <li>
+            <label>
+                <input type="checkbox" name="tasks" class="del" value="<%= task %>">
+
+
+            <span><%= task %></span>
+            </label>
+        </li>
+
+
+        <% }) %>
+        </ul>
+        <input type="submit" value="Remove">
+        <br>
+        <br>
+        <div class="well">
+        <h3>Next Business Call</h3>
+        Name:<%= call.name%><br>
+        Company:<%= call.company%><br>
+        Phone:<%= call.phone%><br>
+        Time:<%= call.time%><br>
+        <br>
+    </div>
+
+        </form>
+        <div class="well">
+        <h3>Edit Next Call</h3>
+        <form method="post" action="/call/add">
+            <label>Contact Name</label><br>
+            <input type="text" name="name" placeholder="Task Name">
+            <br><br>
+            <label>Company</label><br>
+            <input type="text" name="company" placeholder="Company">
+            <br><br>
+            <label>Phone</label><br>
+            <input type="text" name="phone" placeholder="Phone">
+            <br><br>
+            <label>Day & Time</label><br>
+            <input type="text" name="time" placeholder="Time">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+</body>
+</html>
