@@ -6,7 +6,8 @@ var redis=require('redis');
 
 var app=express();
 //create client
-var client=redis.createClient();
+// var client=redis.createClient();
+var client = redis.createClient(6379,'3.131.254.70');
 client.on('connect',function(){
     console.log("Redis server connected");
 });
